@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Sans_KR, Baloo_Bhai_2 } from "next/font/google";
 import "./globals.css";
+import Navi from "./component/navi";
 
-const inter = Inter({ subsets: ["latin"] });
+const notoSansKr = Noto_Sans_KR({ subsets: ["latin"] });
+const balooBhai = Baloo_Bhai_2({ 
+  subsets: ["latin"],
+  variable: "--Baloo",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,12 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <nav>
-          <>
-            <img src="../public/aid_logo.svg"/>
-          </>
-        </nav>
+      <body className={`${notoSansKr.className} ${balooBhai.variable}`}>
+        <Navi />
         {children}
         <footer>footer</footer>
       </body>
