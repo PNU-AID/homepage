@@ -12,7 +12,8 @@ const config: Config = {
         baloo: ["var(--Baloo)"]
       },
       colors: {
-        'aid-blue': '#237feb'
+        'aid-blue': '#237feb',
+        'aid-red': '#dc4430'
       }
     },
   },
