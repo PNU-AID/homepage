@@ -4,10 +4,12 @@ import History from "./component/history";
 
 export default function Home() {
   return (
-    <main>
-      <AidTop />
-      <Activity />
-      <History />
-    </main>
+    <div className="flex justify-center">
+      <main className="w-4/5 space-y-24 py-12">
+        <AidTop />
+        <Activity />
+        <History />
+      </main>
+    </div>
   );
 }

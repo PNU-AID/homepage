@@ -21,11 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${notoSansKr.className} ${balooBhai.variable}`}>
         <Navi />
-        {children}
-        <Footer></Footer>
+        <div className="mt-16">
+          {children}
+          <Footer></Footer>
+        </div>
       </body>
     </html>
   );

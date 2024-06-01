@@ -3,7 +3,7 @@ import Logo from "./logo";
 
 export default function Navi() {
   return (
-    <footer className="top-0 w-100 px-12 py-3 flex-col">
+    <footer className="top-0 w-100 px-12 py-3 flex-col space-y-5">
       <div className="flex justify-between">
         <div className="flex-col gap-5">
           <Logo/>

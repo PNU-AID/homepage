@@ -1,6 +1,6 @@
 export default function Activity() {
   return (
-    <div className="">
+    <section className="" id="Activity">
       <div className="flex h-64">
         <div className="w-3/5 flex flex-col bg-sky-500 justify-between text-white px-4 py-4">
           <h3 className="text-4xl font-black">스터디</h3>
@@ -34,6 +34,6 @@ export default function Activity() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
