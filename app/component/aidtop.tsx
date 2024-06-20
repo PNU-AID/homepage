@@ -1,6 +1,6 @@
 export default function AidTop() {
   return (
-    <section className="" id="AboutUs">
+    <section className="" id="about_us">
       <div className="space-y-4">
         <h1 className="font-black text-9xl">AID</h1>
         <h6 className="text-2xl">AI Engineering & Research in PNU</h6>

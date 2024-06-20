@@ -1,11 +1,8 @@
 import { NextResponse, NextRequest } from "next/server";
 import { writeFile } from "fs/promises";
 
-export async function GET(request: NextRequest) {
+async function fetchNotionData(pageID: string, notionKey: string | undefined) {
   try {
-    const notionKey = process.env.NOTION_KEY;
-    const pageID: string = "28dfae8dfc694303861f61738dd50390";
-
     const response = await fetch(`https://api.notion.com/v1/databases/${pageID}/query`, {
       method: 'POST',
       headers: {
@@ -14,26 +11,49 @@ export async function GET(request: NextRequest) {
         Authorization: `Bearer ${notionKey}`
       }
     });
-    switch (response.status) {
-      case 200:
-        const data = await response.json();
-        const modified = data.results.map((element: any) => {
-          let year = 2023;
-          element.properties.Tags.multi_select.forEach((tag: any) => {
-            if (parseInt(tag.name)) year = parseInt(tag.name);
-          });
-          return {
-            title: element.properties.Name.title[0].text.content,
-            url: element.public_url,
-            year: year
-          };
-        });
-        await writeFile('public/history.json', JSON.stringify(modified));
-        return new NextResponse(null, {
-          status: 200,
-        });
+    if (response.status !== 200) {
+      throw new Error(`Failed to fetch data: ${response.status}`);
     }
-  } catch(e) {
-    console.error(e);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return null;
   }
+}
+
+export async function GET(request: NextRequest) {
+  const notionKey = process.env.NOTION_KEY;
+  const pageID: string = "28dfae8dfc694303861f61738dd50390";
+
+  const data = await fetchNotionData(pageID, notionKey);
+  if (!data) {
+    return new NextResponse(null, {
+      status: 500,
+    })
+  }
+
+  const modified = data.results.map((element: any) => {
+    let year = 2023;
+    element.properties.Tags.multi_select.forEach((tag: any) => {
+      if (parseInt(tag.name)) year = parseInt(tag.name);
+    });
+    return {
+      title: element.properties.Name.title[0].text.content,
+      url: element.public_url,
+      year: year
+    };
+  });
+
+  try {
+    await writeFile('public/history.json', JSON.stringify(modified));
+  } catch (e) {
+    console.error(e);
+    return new NextResponse(null, {
+      status: 500,
+    });
+  }
+  
+  return new NextResponse(null, {
+    status: 200,
+  });
 }

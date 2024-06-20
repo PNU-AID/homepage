@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Baloo_Bhai_2 } from "next/font/google";
 import "./globals.css";
-import Navi from "./component/navi";
-import Footer from "./component/footer";
+import Navi from "./component/Navi";
+import Footer from "./component/Footer";
 
 const notoSansKr = Noto_Sans_KR({ subsets: ["latin"] });
 const balooBhai = Baloo_Bhai_2({ 

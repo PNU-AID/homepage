@@ -43,7 +43,7 @@ export default function History() {
   } , [])
 
   return (
-    <section className="" id="History">
+    <section className="" id="history">
       <button 
         className="bg-red-500 text-white px-5 py-5"
         onClick={(e)=>notionFetcher()}

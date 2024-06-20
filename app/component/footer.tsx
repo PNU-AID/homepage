@@ -1,7 +1,29 @@
+'use client'
+
 import Link from "next/link";
-import Logo from "./logo";
+import Logo from "./Logo";
+import { useState, useEffect } from "react";
 
 export default function Navi() {
+  const [aidUrl, setAidUrl] = useState({
+    notion: "",
+    github: "",
+    velog: "",
+  });
+
+  const urlFetcher = async () => {
+    const res = await fetch('/url.json');
+    if (res.status == 200) {
+      const json = await res.json();
+      if (json.AID)
+      setAidUrl(json.AID);
+    }
+  }
+
+  useEffect(()=>{
+    urlFetcher()
+  }, []);
+
   return (
     <footer className="top-0 w-100 px-12 py-3 flex-col space-y-5">
       <div className="flex justify-between">
@@ -11,21 +33,21 @@ export default function Navi() {
             <Link
               className="px-3 py-5"
               target="_blank"
-              href='https://github.com/PNU-AID'
+              href={aidUrl.github}
             >
               Github
             </Link>
             <Link
               className="px-3 py-5"
               target="_blank"
-              href='https://cookie-quill-a7f.notion.site/AID-1cd5b10fb16e488489be4d9f17a47f97'
+              href={aidUrl.notion}
             >
               Notion
             </Link>
             <Link
               className="px-3 py-5"
               target="_blank"
-              href='https://velog.io/@pnuaid1020/posts'
+              href={aidUrl.velog}
             >
               Velog
             </Link>
@@ -36,7 +58,7 @@ export default function Navi() {
           <h3>010-xxxx-xxxx</h3>
           <h3>회장 강준우 (@.com)</h3>
           <h3>부회장 손봉국 (@.com)</h3>
-          <h3>부산광역시 금정구 부산대학로63번길 2(장전동), 부산대학교 제 6공학관(컴퓨터공학관)</h3>
+          <h3>부산대학교 제 6공학관(컴퓨터공학관)</h3>
         </div>
       </div>
       <div className="flex flex-col items-center">

@@ -1,6 +1,6 @@
-import Activity from "./component/activity";
-import AidTop from "./component/aidtop";
-import History from "./component/history";
+import Activity from "./component/Activity";
+import AidTop from "./component/Aidtop";
+import History from "./component/History";
 
 export default function Home() {
   return (
