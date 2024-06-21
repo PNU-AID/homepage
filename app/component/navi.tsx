@@ -1,6 +1,6 @@
 "use client"
-import Logo from "./Logo";
 import { useState, useEffect } from "react";
+import Logo from '@/app/component/logo';
 
 export default function Navi() {
   const [currentSection, setCurrentSection] = useState<string>('');
@@ -49,9 +49,10 @@ export default function Navi() {
   };
 
   return (
-    <nav className="bg-white top-0 w-full px-12 py-3 flex justify-between fixed top-0">
+    <header className="bg-white top-0 w-full flex fixed left-0 right-0 justify-center items-center py-4 md:py-2">
+        <nav className={'w-4/5 flex items-center md:w-full md:px-6'}>
       <Logo/>
-      <div className="flex items-center font-light space-x-16">
+      <div className="flex items-center font-light space-x-16 ml-auto md:hidden">
         <menu className="space-x-8">
           <a
             className={currentSection == 'about_us' ? 'font-bold': ''}
@@ -77,6 +78,8 @@ export default function Navi() {
           <button>한국어</button> | <button>ENG</button>
         </menu>
       </div>
-    </nav>
+        </nav>
+
+    </header>
   );
 }
