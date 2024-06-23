@@ -8,7 +8,7 @@ interface HistoryAID {
   year: number;
 }
 
-export default function History() { 
+export default function HistorySection() {
   const [isMounted, setIsMounted] = useState(false);
 
   const [data, setData] = useState<HistoryAID[]>([])
@@ -53,8 +53,8 @@ export default function History() {
       {
         yearsArray.map((year, index) => {
           return (
-            <div className="flex justify-between gap-36" key={year}>
-              <h1 className="px-8 py-5">{year}</h1>
+            <div className="flex justify-between gap-36 md:flex-col md:gap-y-4 md:mt-12" key={year}>
+              <h1 className="px-8 py-5 md:px-4 md:py-2 md:font-bold md:text-2xl">{year}</h1>
               <div className="flex flex-1 flex-col">
               {
                 data.map((element, index) => {

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Baloo_Bhai_2 } from "next/font/google";
 import "./globals.css";
-import Navi from "./component/Navi";
-import Footer from "./component/Footer";
+import Footer from '@/app/component/footer';
+import Navi from '@/app/component/navi';
 
 const notoSansKr = Noto_Sans_KR({ subsets: ["latin"] });
 const balooBhai = Baloo_Bhai_2({ 
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${notoSansKr.className} ${balooBhai.variable}`}>
         <Navi />
-        <div className="mt-16">
+        <div className="mt-16 md:mt-0">
           {children}
           <Footer></Footer>
         </div>

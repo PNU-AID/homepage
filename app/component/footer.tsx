@@ -1,10 +1,10 @@
 'use client'
 
 import Link from "next/link";
-import Logo from "./Logo";
 import { useState, useEffect } from "react";
+import Logo from '@/app/component/logo';
 
-export default function Navi() {
+export default function Footer() {
   const [aidUrl, setAidUrl] = useState({
     notion: "",
     github: "",
@@ -26,7 +26,7 @@ export default function Navi() {
 
   return (
     <footer className="top-0 w-100 px-12 py-3 flex-col space-y-5">
-      <div className="flex justify-between">
+      <div className="flex justify-between md:flex-col">
         <div className="flex-col gap-5">
           <Logo/>
           <div className="flex font-semibold text-sm">
