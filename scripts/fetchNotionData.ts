@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { writeFile } from 'fs/promises';
 
 async function fetchNotionData(pageID: string, notionKey: string | undefined): Promise<any> {
