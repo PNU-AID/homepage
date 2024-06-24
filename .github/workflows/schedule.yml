@@ -22,3 +22,23 @@ jobs:
       env:
         NOTION_KEY: ${{ secrets.NOTION_KEY }}
       run: npx ts-node ./scripts/fetchNotionData.ts
+    
+    - name: Check for changes
+      id: git_diff
+      run: |
+        git fetch origin
+        git diff --exit-code public/history.json || echo "Changes detected"
+
+    - name: Commit changes
+      if: steps.git_diff.outputs.changes_detected
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add public/history.json
+        git commit -m 'Update history.json from GitHub Action'
+    
+    - name: Push changes
+      if: steps.git_diff.outputs.changes_detected
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
