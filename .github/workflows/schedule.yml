@@ -28,13 +28,13 @@ jobs:
       run: |
         git fetch origin
         if git diff --exit-code public/history.json; then
-          echo "::set-output name=changes_detected::false"
+          echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
         else
-          echo "::set-output name=changes_detected::true"
+          echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
         fi
 
     - name: Commit changes
-      if: steps.git_diff.outputs.changes_detected == 'true'
+      if: env.CHANGES_DETECTED == 'true'
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -42,7 +42,7 @@ jobs:
         git commit -m 'Update history.json from GitHub Action'
 
     - name: Push changes
-      if: steps.git_diff.outputs.changes_detected == 'true'
+      if: env.CHANGES_DETECTED == 'true'
       uses: ad-m/github-push-action@v0.6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
