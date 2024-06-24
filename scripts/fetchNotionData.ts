@@ -1,4 +1,4 @@
-import { writeFile } from 'fs/promises';
+const { writeFile } = require('fs').promises;
 
 async function fetchNotionData(pageID: string, notionKey: string | undefined): Promise<any> {
   try {
