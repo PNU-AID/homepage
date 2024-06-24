@@ -26,6 +26,7 @@ export async function GET(request: NextRequest) {
   const pageID: string = "28dfae8dfc694303861f61738dd50390";
 
   const data = await fetchNotionData(pageID, notionKey);
+  console.log(data);
   if (!data) {
     return new NextResponse(null, {
       status: 500,

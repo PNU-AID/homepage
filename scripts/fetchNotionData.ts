@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { writeFile } from 'fs/promises';
 
-async function fetchNotionData(pageID: string, notionKey: string | undefined) {
+async function fetchNotionData(pageID: string, notionKey: string | undefined): Promise<any> {
   try {
     const response = await fetch(`https://api.notion.com/v1/databases/${pageID}/query`, {
       method: 'POST',
