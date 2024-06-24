@@ -21,4 +21,4 @@ jobs:
     - name: Run the fetch and update script
       env:
         NOTION_KEY: ${{ secrets.NOTION_KEY }}
-      run: npx ts-node fetchNotionData.ts
+      run: npx ts-node ./scripts/fetchNotionData.ts
