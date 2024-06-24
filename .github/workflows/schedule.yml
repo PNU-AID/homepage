@@ -2,7 +2,7 @@ name: Scheduled Notion Data Fetch
 
 on:
   schedule:
-    - cron: '0 0 * * *' # actions at midnight every day
+    - cron: '0 15 * * *' # actions at midnight every day
   workflow_dispatch: # Allows manual triggering on GitHub UI
 
 jobs:
@@ -21,59 +21,4 @@ jobs:
     - name: Run the fetch and update script
       env:
         NOTION_KEY: ${{ secrets.NOTION_KEY }}
-      run: |
-        node -e "
-        const fetch = require('node-fetch');
-        const { writeFile } = require('fs').promises;
-
-        async function fetchNotionData(pageID, notionKey) {
-          try {
-            const response = await fetch(\`https://api.notion.com/v1/databases/\${pageID}/query\`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Notion-Version': '2022-06-28',
-                Authorization: \`Bearer \${notionKey}\`
-              }
-            });
-            if (response.status !== 200) {
-              throw new Error(\`Failed to fetch data: \${response.status}\`);
-            }
-            return await response.json();
-          } catch (error) {
-            console.error(error);
-            return null;
-          }
-        }
-
-        (async () => {
-          const notionKey = process.env.NOTION_KEY;
-          const pageID = '28dfae8dfc694303861f61738dd50390';
-
-          const data = await fetchNotionData(pageID, notionKey);
-          if (!data) {
-            process.exit(1);
-          }
-
-          const modified = data.results.map((element) => {
-            let year = 2023;
-            element.properties.Tags.multi_select.forEach((tag) => {
-              if (parseInt(tag.name)) year = parseInt(tag.name);
-            });
-            return {
-              title: element.properties.Name.title[0].text.content,
-              url: element.public_url,
-              year: year
-            };
-          });
-
-          try {
-            await writeFile('public/history.json', JSON.stringify(modified));
-          } catch (e) {
-            console.error(e);
-            process.exit(1);
-          }
-          
-          process.exit(0);
-        })();
-        "
+      run: ts-node fetchNotionData.ts
