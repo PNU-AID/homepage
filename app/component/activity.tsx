@@ -99,7 +99,7 @@ export default function Activity() {
             {
               lang == 'ko' ?
               "사이드 프로젝트, 해커톤 등 대외 활동" :
-              "Side projects, AI Competition, and hackathons"
+              "Side projects, AI competitions, and hackathons"
             }
           </p>
         </Link>

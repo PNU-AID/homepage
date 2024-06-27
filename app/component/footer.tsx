@@ -64,9 +64,9 @@ export default function Footer() {
         </div>
         <div className="flex-col text-sm">
           <h1 className="font-black text-lg">Contact</h1>
-          <h3>010-xxxx-xxxx</h3>
-          <h3>{ lang == 'ko' ? '회장 강준우' : 'Chairman - Junwoo Kang' } (@.com)</h3>
-          <h3>{ lang == 'ko' ? '부회장 손봉국' : 'Vice Chairman - Son Bong-guk' } (@.com)</h3>
+          <h3>{ lang == 'en' ? '+82 ' : '0' }10-5495-4551</h3>
+          <h3>{ lang == 'ko' ? '회장 강준우' : 'Chairman - Junwoo Kang' } (jangtai4@pusan.ac.kr)</h3>
+          <h3>{ lang == 'ko' ? '부회장 손봉국' : 'Vice Chairman - Son Bong-guk' } (sonbongguk5@gmail.com)</h3>
           <h3>{ lang == 'ko' ? '부산대학교 제 6공학관(컴퓨터공학관)' : 'Pusan National University, Engineering Bldg. 6 (Computer Engineering Bldg.)' }</h3>
         </div>
       </div>
