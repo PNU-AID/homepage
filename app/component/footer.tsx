@@ -1,10 +1,23 @@
 'use client'
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import Logo from '@/app/component/logo';
+import { useSearchParams } from "next/navigation";
+import Logo from '@/app/component/Logo';
+import urls from '@/public/url.json';
 
 export default function Footer() {
+  const [lang, setLang] = useState<string>('ko');
+  const SearchParams = useSearchParams();
+
+  useEffect(() => {
+    const queryLang = SearchParams.get('lang');
+    if (queryLang == 'ko' || queryLang == 'en') {
+      setLang(queryLang);
+    }
+  }, [SearchParams])
+
   const [aidUrl, setAidUrl] = useState({
     notion: "",
     github: "",
@@ -12,12 +25,8 @@ export default function Footer() {
   });
 
   const urlFetcher = async () => {
-    const res = await fetch('/url.json');
-    if (res.status == 200) {
-      const json = await res.json();
-      if (json.AID)
-      setAidUrl(json.AID);
-    }
+    const json = urls;
+    setAidUrl(json.AID);
   }
 
   useEffect(()=>{
@@ -25,7 +34,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="top-0 w-100 px-12 py-3 flex-col space-y-5">
+    <footer className="flex m-auto top-0 w-4/5 py-3 flex-col items-between space-y-5">
       <div className="flex justify-between md:flex-col">
         <div className="flex-col gap-5">
           <Logo/>
@@ -35,30 +44,30 @@ export default function Footer() {
               target="_blank"
               href={aidUrl.github}
             >
-              Github
+              <Image alt="github_logo" width="30" height="1" src="/github-mark.svg"/>
             </Link>
             <Link
               className="px-3 py-5"
               target="_blank"
               href={aidUrl.notion}
             >
-              Notion
+              <Image alt="github_logo" width="30" height="1" src="/notion-mark.svg"/>
             </Link>
             <Link
               className="px-3 py-5"
               target="_blank"
               href={aidUrl.velog}
             >
-              Velog
+              <Image alt="github_logo" width="30" height="1" src="/velog-mark.svg"/>
             </Link>
           </div>
         </div>
         <div className="flex-col text-sm">
           <h1 className="font-black text-lg">Contact</h1>
           <h3>010-xxxx-xxxx</h3>
-          <h3>회장 강준우 (@.com)</h3>
-          <h3>부회장 손봉국 (@.com)</h3>
-          <h3>부산대학교 제 6공학관(컴퓨터공학관)</h3>
+          <h3>{ lang == 'ko' ? '회장 강준우' : 'Chairman - Junwoo Kang' } (@.com)</h3>
+          <h3>{ lang == 'ko' ? '부회장 손봉국' : 'Vice Chairman - Son Bong-guk' } (@.com)</h3>
+          <h3>{ lang == 'ko' ? '부산대학교 제 6공학관(컴퓨터공학관)' : 'Pusan National University, Engineering Bldg. 6 (Computer Engineering Bldg.)' }</h3>
         </div>
       </div>
       <div className="flex flex-col items-center">

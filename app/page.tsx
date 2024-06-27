@@ -1,7 +1,7 @@
-import AidTop from '@/app/component/aidtop';
-import Activity from '@/app/component/activity';
-import HistorySection from '@/app/component/history';
-
+import AidTop from '@/app/component/AidTop';
+import Activity from '@/app/component/Activity';
+import HistorySection from '@/app/component/HistorySection';
+import AidLinks from '@/app/component/AidLinks';
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
         <AidTop />
         <Activity />
         <HistorySection />
+        <AidLinks />
       </main>
     </div>
   );
