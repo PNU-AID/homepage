@@ -39,6 +39,7 @@ export default function HistorySection() {
 
   return (
     <section className="" id="history">
+      {/* dev 환경, Notion에서 데이터 갱신하는 버튼 */}
       {/* <button 
         className="bg-red-500 text-white px-5 py-5"
         onClick={(e)=>notionFetcher()}

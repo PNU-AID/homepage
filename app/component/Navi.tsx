@@ -37,7 +37,7 @@ export default function Navi() {
       });
 
       setCurrentSection(nearestSection);
-      console.log(nearestSection);
+      // console.log(nearestSection);
     }
 
     window.addEventListener('scroll', handleScroll);

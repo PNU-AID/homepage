@@ -2,6 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import recruitData from "@/public/recruit.json";
+
+interface recruitDate {
+  start: string,
+  end: string,
+  time_zone: any
+}
 
 export default function AidTop() {
   const [lang, setLang] = useState<string>('ko');
@@ -13,6 +20,23 @@ export default function AidTop() {
       setLang(queryLang);
     }
   }, [SearchParams])
+
+  const [recruitDate, setRecruitDate] = useState<recruitDate>({
+    start: "2024-01-01",
+    end: "2024-01-02",
+    time_zone: null
+  })
+
+  const dateConverter = (origin: string) => {
+    const dateArr = origin.split('-');
+    return `${dateArr[0].slice(2,4)}.${dateArr[1]}.${dateArr[2]}`;
+  }
+
+  useEffect(() => {
+    if (recruitData) {
+      setRecruitDate(recruitData);
+    }
+  }, [])
 
   return (
     <section className="" id="about_us">
@@ -38,21 +62,28 @@ export default function AidTop() {
             Science and Engineering, and various students are working together.
           </p>
         }
-        <div className="flex items-center gap-3 md:flex-col-reverse w-full">
-          <button className="bg-aid-blue text-white px-4 py-2 text-nowrap md:text-sm md:px-2 md:py-2 md:w-full">
-            { lang == 'ko' ? '동아리 지원하기' : 'Apply' }
-          </button>
-          <p className="md:text-sm md:text-start w-full text-nowrap">
-            { lang == 'ko' ? '모집기간' : 'Recruitment Period' } - 24.07.01~24.07.07
-            <span className={'md:hidden'}> | </span>
-            <br className={'hidden md:block'} /> 
-            { 
-              lang == 'ko' ? 
-              '모집 대상 - 인공지능을 좋아하는 누구나' : 
-              'Target Audience - PNU students who love AI'
-            }
-          </p>
-        </div>
+        {
+          /* 현재 날짜가 모집 기간이라면 Block 표시
+          public/recruit.json 파일에 모집기간 저장
+          Dev 환경에서 recruit.json 파일을 갱신하는 버튼은 HistorySection.tsx 컴포넌트에 주석처리 해둠 */
+
+          new Date(recruitDate.start) <= new Date() && new Date() <= new Date(recruitDate.end) ?
+          <div className="flex items-center gap-3 md:flex-col-reverse w-full">
+            <button className="bg-aid-blue text-white px-4 py-2 text-nowrap md:text-sm md:px-2 md:py-2 md:w-full">
+              { lang == 'ko' ? '동아리 지원하기' : 'Apply' }
+            </button>
+            <p className="md:text-sm md:text-start w-full text-nowrap">
+              { lang == 'ko' ? '모집기간' : 'Recruitment Period' } - {dateConverter(recruitDate.start)}~{dateConverter(recruitDate.end)}
+              <span className={'md:hidden'}> | </span>
+              <br className={'hidden md:block'} /> 
+              { 
+                lang == 'ko' ? 
+                '모집 대상 - 인공지능을 좋아하는 누구나' : 
+                'Target Audience - PNU students who love AI'
+              }
+            </p>
+          </div> : null
+        }
       </div>
 
     </section>

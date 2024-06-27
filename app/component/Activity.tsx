@@ -58,7 +58,7 @@ export default function Activity() {
             Object.keys(studyUrl).map((year, idx) => {
               return (
                 <Link 
-                  className="px-4 w-full text-center content-center text-white text-2xl font-black bg-sky-600 hover:bg-gray-700"
+                  className="flex px-4 w-full text-center items-center text-white text-2xl font-black bg-sky-600 hover:bg-gray-700"
                   key={idx} 
                   href={studyUrl[year]} 
                   target="_blank"
