@@ -32,8 +32,8 @@ export default function AidTop() {
           </p> :
           <p className="text-sm text-gray-500">
             AID is a club where people interested in AI development conduct studies and seminars together, and develop through competitions and projects.
-            We aim to expand our network with people who dream of the same career path and develop individual and group skills. <br/>
-            Under the guidance of Professor Cho Joon-soo of the AI club at Pusan National University, 
+            We aim to expand our network with people who dream of the same career path and develop individual and group skills. <br/><br/>
+            Under the guidance of Professor Cho Joon-soo of the AI club at Pusan National University,
             it was established in the first semester of 2022 with students from Pusan National University's Computer
             Science and Engineering, and various students are working together.
           </p>
