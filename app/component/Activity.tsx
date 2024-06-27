@@ -41,7 +41,7 @@ export default function Activity() {
 
   return (
     <section className="" id="activity">
-      <div className="flex h-48">
+      <div className="flex h-48 md:flex-col">
         <div className="flex flex-1 flex-col bg-sky-500 justify-between text-white px-4 py-4 md:w-full">
           <h3 className="text-4xl font-black">
             { lang == 'ko' ? "스터디" : "Study" }
@@ -53,12 +53,12 @@ export default function Activity() {
             }
           </p>
         </div>
-        <div className="flex justify-between items-stretch md:hidden">
+        <div className="flex justify-between items-stretch">
           {
             Object.keys(studyUrl).map((year, idx) => {
               return (
                 <Link 
-                  className="flex px-4 w-full text-center items-center text-white text-2xl font-black bg-sky-600 hover:bg-gray-700"
+                  className="flex px-4 w-full text-center items-center justify-center text-white text-2xl font-black bg-sky-600 hover:bg-gray-700 md:py-2"
                   key={idx} 
                   href={studyUrl[year]} 
                   target="_blank"

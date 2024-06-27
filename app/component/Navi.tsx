@@ -65,8 +65,8 @@ export default function Navi() {
     <header className="bg-white top-0 w-full flex fixed left-0 right-0 justify-center items-center py-4 md:py-2">
       <nav className={'w-4/5 flex items-center md:w-full md:px-6'}>
         <Logo/>
-        <div className="flex items-center font-light space-x-16 ml-auto md:hidden">
-          <menu className="space-x-8">
+        <div className="flex items-center font-light space-x-16 ml-auto">
+          <menu className="space-x-8 md:hidden">
             <a
               className={currentSection == 'about_us' ? 'font-bold': ''}
               onClick={(e) => handleLinkClick(e, 'about_us')}

@@ -40,8 +40,8 @@ export default function AidTop() {
 
   return (
     <section className="" id="about_us">
-      <div className="gap-y-2 md:text-center md:space-y-8 md:h-screen md:items-center flex flex-col md:justify-center">
-        <h1 className="font-black text-9xl md:text-6xl">AID</h1>
+      <div className="gap-y-2 flex flex-col md:justify-center">
+        <h1 className="font-black text-9xl">AID</h1>
         <h6 className="text-2xl">AI Engineering & Research in PNU</h6>
         {
           lang == 'ko' ?
@@ -68,14 +68,13 @@ export default function AidTop() {
           Dev 환경에서 recruit.json 파일을 갱신하는 버튼은 HistorySection.tsx 컴포넌트에 주석처리 해둠 */
 
           new Date(recruitDate.start) <= new Date() && new Date() <= new Date(recruitDate.end) ?
-          <div className="flex items-center gap-3 md:flex-col-reverse w-full">
+          <div className="flex items-center gap-3 md:flex-col-reverse w-full md:mt-8">
             <button className="bg-aid-blue text-white px-4 py-2 text-nowrap md:text-sm md:px-2 md:py-2 md:w-full">
               { lang == 'ko' ? '동아리 지원하기' : 'Apply' }
             </button>
             <p className="md:text-sm md:text-start w-full text-nowrap">
               { lang == 'ko' ? '모집기간' : 'Recruitment Period' } - {dateConverter(recruitDate.start)}~{dateConverter(recruitDate.end)}
-              <span className={'md:hidden'}> | </span>
-              <br className={'hidden md:block'} /> 
+              <br/> 
               { 
                 lang == 'ko' ? 
                 '모집 대상 - 인공지능을 좋아하는 누구나' : 

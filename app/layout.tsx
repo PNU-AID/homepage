@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${notoSansKr.className} ${balooBhai.variable}`}>
         <Navi />
-        <div className="mt-16 md:mt-0">
+        <div className="mt-16">
           {children}
           <Footer></Footer>
         </div>

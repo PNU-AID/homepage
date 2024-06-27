@@ -34,7 +34,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="flex m-auto top-0 w-4/5 py-3 flex-col items-between space-y-5">
+    <footer className="flex m-auto top-0 w-4/5 py-3 flex-col items-between space-y-5 md:mt-16">
       <div className="flex justify-between md:flex-col">
         <div className="flex-col gap-5">
           <Logo/>
@@ -71,8 +71,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex flex-col items-center">
-        <p className="font-bold">AID (AI Developers) in PNU © 2022 ALL RIGHTS RESERVED</p>
-        <p className="text-xs">Reproduction in whole or part without written permission is strictly prohibited</p>
+        <p className="font-bold md:text-xs md:whitespace-nowrap">AID <text className="md:hidden">(AI Developers)</text> in PNU © 2022 ALL RIGHTS RESERVED</p>
+        <p className="text-xs md:hidden">Reproduction in whole or part without written permission is strictly prohibited</p>
       </div>
     </footer>
   );
