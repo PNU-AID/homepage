@@ -4,7 +4,6 @@ import HistorySection from '@/app/component/HistorySection';
 import AidLinks from '@/app/component/AidLinks';
 import {Suspense} from 'react';
 
-
 export default function Home() {
     return (
         <div className="flex w-full h-full justify-center">
