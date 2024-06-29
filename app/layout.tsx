@@ -34,7 +34,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="scroll-smooth">
+        <html lang="ko" className="scroll-smooth">
             <body className={`${notoSansKr.className} ${balooBhai.variable}`}>
                 <Suspense>
                     <Navi />
