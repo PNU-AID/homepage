@@ -9,6 +9,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            width: {
+                'lg-width': '1024px',
+            },
             fontFamily: {
                 baloo: ['var(--Baloo)']
             },
@@ -22,6 +25,11 @@ const config: Config = {
                 'md': {max: '767px'},
                 'sm': {max: '576px'},
             },
+        },
+    },
+    variants: {
+        extend: {
+            width: ['responsive'],
         },
     },
     plugins: [],

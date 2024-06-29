@@ -48,5 +48,28 @@ async function fetchNotionData(pageID: string, notionKey: string | undefined): P
     process.exit(1);
   }
 
+  const recruitDataID: string = "7b6a34d36a0d47ff8af08ac2c5f6d88a";
+  const recruitPageID: string = "788a6802-ef41-4be8-bfb8-711698128fc7";
+  
+  let recruitDate = {
+    "start": "2024-01-01",
+    "end": "2024-01-01",
+    "time_zone": null
+  }
+  const recruitData = await fetchNotionData(recruitDataID, notionKey);
+  recruitData.results.map((element: any) => {
+    console.log(element.id);
+    if (element.id == recruitPageID) {
+      recruitDate = element.properties.날짜.date;
+    }
+  })
+
+  try {
+    await writeFile('public/recruit.json', JSON.stringify(recruitDate));
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
+
   process.exit(0);
 })();

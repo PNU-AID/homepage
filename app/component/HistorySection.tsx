@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import history from "@/public/history.json"
 
 interface HistoryAID {
   title: string;
@@ -9,8 +10,6 @@ interface HistoryAID {
 }
 
 export default function HistorySection() {
-  const [isMounted, setIsMounted] = useState(false);
-
   const [data, setData] = useState<HistoryAID[]>([])
 
   const currentYear = new Date().getFullYear();
@@ -30,26 +29,23 @@ export default function HistorySection() {
   }
 
   const historyFetcher = async () => {
-    const res = await fetch('/history.json');
-    if (res.status == 200) {
-      const json: HistoryAID[] = await res.json();
-      setData(json);
-    }
+    const json: HistoryAID[] = history;
+    setData(json);
   }
 
   useEffect(() => {
     historyFetcher();
-    setIsMounted(true);
   } , [])
 
   return (
     <section className="" id="history">
-      <button 
+      {/* dev 환경, Notion에서 데이터 갱신하는 버튼 */}
+      {/* <button 
         className="bg-red-500 text-white px-5 py-5"
         onClick={(e)=>notionFetcher()}
       >
         json 생성
-      </button>
+      </button> */}
       {
         yearsArray.map((year, index) => {
           return (

@@ -3,5 +3,10 @@
     "github": "https://github.com/PNU-AID",
     "notion": "https://cookie-quill-a7f.notion.site/AID-1cd5b10fb16e488489be4d9f17a47f97",
     "velog": "https://velog.io/@pnuaid1020/posts"
-  }
+  },
+  "Study": {
+    "2023": "https://github.com/PNU-AID/Guide-line/blob/main/study_guide/2023/README.md",
+    "2024": "https://github.com/PNU-AID/Guide-line/blob/main/study_guide/2024/README.md"
+  },
+  "Activity": "https://cookie-quill-a7f.notion.site/28dfae8dfc694303861f61738dd50390?v=4fb9cec3e72a4faaa6bd096fc7fa76ba"
 }
