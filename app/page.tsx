@@ -1,18 +1,26 @@
-import AidTop from '@/app/component/AidTop';
-import Activity from '@/app/component/Activity';
-import HistorySection from '@/app/component/HistorySection';
-import AidLinks from '@/app/component/AidLinks';
-import {Suspense} from 'react';
+import AidTop from "@/app/component/AidTop";
+import Activity from "@/app/component/Activity";
+import HistorySection from "@/app/component/HistorySection";
+import AidLinks from "@/app/component/AidLinks";
+import { Suspense } from "react";
 
 export default function Home() {
-    return (
-        <div className="flex w-full h-full justify-center">
-            <main className="w-4/5 2xl:w-lg-width space-y-24 py-12 md:px-6 mx-auto md:w-full md:space-y-6 md:py-0 ">
-                <Suspense><AidTop/></Suspense>
-                <Suspense><Activity/></Suspense>
-                <Suspense><HistorySection/></Suspense>
-                <Suspense><AidLinks/></Suspense>
-            </main>
-        </div>
-    );
+  return (
+    <div className="flex w-full h-full justify-center">
+      <main className="w-4/5 2xl:w-lg-width space-y-24 py-12 md:px-6 mx-auto md:w-full md:space-y-6 md:py-0 ">
+        <Suspense>
+          <AidTop />
+        </Suspense>
+        <Suspense>
+          <Activity />
+        </Suspense>
+        <Suspense>
+          <HistorySection />
+        </Suspense>
+        <Suspense>
+          <AidLinks />
+        </Suspense>
+      </main>
+    </div>
+  );
 }

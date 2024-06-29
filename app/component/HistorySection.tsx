@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import history from "@/public/history.json"
+import history from "@/public/history.json";
 
 interface HistoryAID {
   title: string;
@@ -10,7 +10,7 @@ interface HistoryAID {
 }
 
 export default function HistorySection() {
-  const [data, setData] = useState<HistoryAID[]>([])
+  const [data, setData] = useState<HistoryAID[]>([]);
 
   const currentYear = new Date().getFullYear();
   const yearsArray = [];
@@ -31,11 +31,11 @@ export default function HistorySection() {
   const historyFetcher = async () => {
     const json: HistoryAID[] = history;
     setData(json);
-  }
+  };
 
   useEffect(() => {
     historyFetcher();
-  } , [])
+  }, []);
 
   return (
     <section className="" id="history">
@@ -46,15 +46,18 @@ export default function HistorySection() {
       >
         json 생성
       </button> */}
-      {
-        yearsArray.map((year, index) => {
-          return (
-            <div className="flex justify-between gap-36 md:flex-col md:gap-y-4 md:mt-12" key={year}>
-              <h1 className="px-8 py-5 md:px-4 md:py-2 md:font-bold md:text-2xl">{year}</h1>
-              <div className="flex flex-1 flex-col">
-              {
-                data.map((element, index) => {
-                  if (element.year == year)
+      {yearsArray.map((year, index) => {
+        return (
+          <div
+            className="flex justify-between gap-36 md:flex-col md:gap-y-4 md:mt-12"
+            key={year}
+          >
+            <h1 className="px-8 py-5 md:px-4 md:py-2 md:font-bold md:text-2xl">
+              {year}
+            </h1>
+            <div className="flex flex-1 flex-col">
+              {data.map((element, index) => {
+                if (element.year == year)
                   return (
                     <Link
                       target="_blank"
@@ -64,14 +67,12 @@ export default function HistorySection() {
                     >
                       {element.title}
                     </Link>
-                  )
-                })
-              }
-              </div>
+                  );
+              })}
             </div>
-          )
-        })
-      }
+          </div>
+        );
+      })}
     </section>
   );
 }

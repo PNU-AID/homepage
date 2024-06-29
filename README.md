@@ -1,6 +1,7 @@
 # System Architecture
 
 ## Environment
+
 - node ^18
 - next 14.2.3
 - react ^18
