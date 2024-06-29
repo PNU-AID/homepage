@@ -18,15 +18,15 @@ export default function HistorySection() {
     yearsArray.push(year);
   }
 
-  const notionFetcher = async () => {
-    const response = await fetch(`/api/dev`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
-    console.log(response.status);
-  }
+  // const notionFetcher = async () => {
+  //   const response = await fetch(`/api/dev`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     }
+  //   });
+  //   console.log(response.status);
+  // }
 
   const historyFetcher = async () => {
     const json: HistoryAID[] = history;
