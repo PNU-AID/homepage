@@ -76,6 +76,7 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Add noJekyll file # NextJS CSS 반영
+        run: ${{ steps.detect-package-manager.outputs.runner }} run touch
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
