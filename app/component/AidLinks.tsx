@@ -27,27 +27,27 @@ export default function AidLinks() {
             className="flex items-center justify-center gap-20 text-xl font-black md:flex-col md:gap-2"
         >
             <Link
-                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4 hover:bg-gray-300"
+                className="flex flex-col items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
                 target="_blank"
                 href={aidUrl.github}
             >
-                <Image alt="github_logo" width="50" height="1" src="/github-mark.svg" />
+                <Image alt="github_logo" width="50" height="1" src="/aid-web-nextjs/github-mark.svg" />
                 <text>GitHub</text>
             </Link>
             <Link
-                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4 hover:bg-gray-300"
+                className="flex flex-col items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
                 target="_blank"
                 href={aidUrl.notion}
             >
-                <Image alt="notion_logo" width="50" height="1" src="/notion-mark.svg" />
+                <Image alt="notion_logo" width="50" height="1" src="/aid-web-nextjs/notion-mark.svg" />
                 <text>Notion</text>
             </Link>
             <Link
-                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4 hover:bg-gray-300"
+                className="flex flex-col items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
                 target="_blank"
                 href={aidUrl.velog}
             >
-                <Image alt="velog_logo" width="50" height="1" src="/velog-mark.svg" />
+                <Image alt="velog_logo" width="50" height="1" src="/aid-web-nextjs/velog-mark.svg" />
                 <text>Velog</text>
             </Link>
         </section>

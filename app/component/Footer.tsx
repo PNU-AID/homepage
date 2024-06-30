@@ -40,13 +40,13 @@ export default function Footer() {
                     <Logo />
                     <div className="flex text-sm font-semibold">
                         <Link className="px-3 py-5" target="_blank" href={aidUrl.github}>
-                            <Image alt="github_logo" width="30" height="1" src="/github-mark.svg" />
+                            <Image alt="github_logo" width="30" height="1" src="/aid-web-nextjs/github-mark.svg" />
                         </Link>
                         <Link className="px-3 py-5" target="_blank" href={aidUrl.notion}>
-                            <Image alt="github_logo" width="30" height="1" src="/notion-mark.svg" />
+                            <Image alt="github_logo" width="30" height="1" src="/aid-web-nextjs/notion-mark.svg" />
                         </Link>
                         <Link className="px-3 py-5" target="_blank" href={aidUrl.velog}>
-                            <Image alt="github_logo" width="30" height="1" src="/velog-mark.svg" />
+                            <Image alt="github_logo" width="30" height="1" src="/aid-web-nextjs/velog-mark.svg" />
                         </Link>
                     </div>
                 </div>
