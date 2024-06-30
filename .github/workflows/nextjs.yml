@@ -5,6 +5,9 @@
 name: Deploy Next.js site to Pages
 
 on:
+    # notion Data fetch event가 끝나면 deploy_workflow 자동 실행
+    repository_dispatch:
+        types: [deploy_workflow]
     # Runs on pushes targeting the default branch
     push:
         branches: ['main']
