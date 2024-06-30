@@ -48,7 +48,7 @@ export default function AidTop() {
     }, []);
 
     return (
-        <section className="" id="about_us">
+        <section className="md:mt-10" id="about_us">
             <div className="flex flex-col gap-y-2 md:justify-center">
                 <h1 className="text-9xl font-black md:text-8xl">AID</h1>
                 <h6 className="text-2xl md:text-lg md:font-bold">AI Engineering & Research in PNU</h6>

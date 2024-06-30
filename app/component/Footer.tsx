@@ -36,7 +36,7 @@ export default function Footer() {
     return (
         <footer className="items-between top-0 m-auto flex w-4/5 flex-col space-y-5 py-3 md:mt-16">
             <div className="flex justify-between md:flex-col">
-                <div className="flex-col gap-5">
+                <div className="flex flex-col gap-5 md:flex-row">
                     <Logo />
                     <div className="flex text-sm font-semibold">
                         <Link className="px-3 py-5" target="_blank" href={aidUrl.github}>
@@ -50,8 +50,8 @@ export default function Footer() {
                         </Link>
                     </div>
                 </div>
-                <div className="flex-col text-sm">
-                    <h1 className="text-lg font-black">Contact</h1>
+                <div className="flex-col text-sm md:text-center md:text-gray-500 md:space-y-2">
+                    <h1 className="text-lg font-black md:hidden">Contact</h1>
                     <h3>{lang == 'en' ? '+82 ' : '0'}10-5495-4551</h3>
                     <h3>{lang == 'ko' ? '회장 강준우' : 'Chairman - Junwoo Kang'} (jangtai4@pusan.ac.kr)</h3>
                     <h3>{lang == 'ko' ? '부회장 손봉국' : 'Vice Chairman - Son Bong-guk'} (sonbongguk5@gmail.com)</h3>

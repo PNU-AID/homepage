@@ -41,7 +41,7 @@ export default function Activity() {
 
     return (
         <section className="" id="activity">
-            <div className="flex h-48 md:flex-col">
+            <div className="flex h-48 md:flex-col md:h-44">
                 <div className="flex flex-1 flex-col justify-between bg-sky-500 px-4 py-4 text-white md:w-full">
                     <h3 className="text-4xl font-black md:text-3xl">{lang == 'ko' ? '스터디' : 'Study'}</h3>
                     <p className="text-lg font-bold md:text-base">
@@ -65,7 +65,7 @@ export default function Activity() {
                     })}
                 </div>
             </div>
-            <div className="flex h-48">
+            <div className="flex h-48 md:h-40">
                 {/* <div className="flex-1 bg-gray-300 md:hidden">
           사진 | 일러스트
         </div> */}
@@ -78,7 +78,7 @@ export default function Activity() {
                     </p>
                 </div>
             </div>
-            <div className="flex h-48">
+            <div className="flex h-48 md:h-40">
                 {/* <div className="flex-1 bg-gray-300 md:hidden">
           사진 | 일러스트
         </div> */}
