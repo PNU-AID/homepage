@@ -27,7 +27,7 @@ export default function AidLinks() {
             className="flex items-center justify-center gap-20 text-xl font-black md:flex-col md:gap-2"
         >
             <Link
-                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4"
+                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4 hover:bg-gray-300"
                 target="_blank"
                 href={aidUrl.github}
             >
@@ -35,7 +35,7 @@ export default function AidLinks() {
                 <text>GitHub</text>
             </Link>
             <Link
-                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4"
+                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4 hover:bg-gray-300"
                 target="_blank"
                 href={aidUrl.notion}
             >
@@ -43,7 +43,7 @@ export default function AidLinks() {
                 <text>Notion</text>
             </Link>
             <Link
-                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4"
+                className="flex flex-col items-center border-2 border-gray-300 p-8 md:w-full md:p-4 hover:bg-gray-300"
                 target="_blank"
                 href={aidUrl.velog}
             >
