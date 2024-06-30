@@ -17,7 +17,7 @@ export default function Activity() {
     const [ActivityUrl, setActivityUrl] = useState<string>('');
 
     const urlFetcher = async () => {
-        const res = await fetch('/url.json');
+        const res = await fetch('/aid-web-nextjs/url.json');
         if (res.status == 200) {
             const json = await res.json();
             if (json.Study) setStudyUrl(json.Study);
