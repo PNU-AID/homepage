@@ -1,10 +1,15 @@
 {
     "name": "aid-web-nextjs",
+    "homepage": "https://github.com/PNU-AID/aid-web-nextjs",
     "version": "1.0.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "preexport": "rimraf out",
+        "export": "next export",
+        "touch": "touch out/.nojekyll",
+        "posttouch": "touch out/_next/.nojekyll",
         "start": "next start",
         "lint": "next lint",
         "prepare": "husky",
@@ -21,6 +26,7 @@
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
+        "gh-pages": "^6.1.1",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.7",
         "postcss": "^8",
