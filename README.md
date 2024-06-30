@@ -9,6 +9,9 @@
 -   이동훈(@bluelemon61)
 -   김민석(@KimCookieYa)
 
+## ⚠️ Caution
+- localhost 실행 시 `localhost/aid-web-nextjs`로 접속
+
 ## System Architecture
 
 ### Environment
@@ -21,3 +24,7 @@
 -   tailwindcss ^3.4.1
 -   typescript ^5
 -   @notionhq/client ^2.2.15
+
+## GitHub Action
+1. `Scheduled Notion Data Fetch`: Notion API로 static file 갱신 후 `Deploy Next.js site to Pages` 실행
+2. `Deploy Next.js site to Pages`: GitHub Pages 배포
