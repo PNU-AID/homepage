@@ -57,7 +57,7 @@ export default function HistorySection() {
                                         <Link
                                             target="_blank"
                                             href={element.url}
-                                            className="border-b-2 border-gray-300 px-8 py-5 text-right"
+                                            className="border-b-2 border-gray-300 px-8 py-5 text-right hover:bg-gray-300"
                                             key={index}
                                         >
                                             {element.title}

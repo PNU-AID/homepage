@@ -43,8 +43,8 @@ export default function Activity() {
         <section className="" id="activity">
             <div className="flex h-48 md:flex-col">
                 <div className="flex flex-1 flex-col justify-between bg-sky-500 px-4 py-4 text-white md:w-full">
-                    <h3 className="text-4xl font-black">{lang == 'ko' ? '스터디' : 'Study'}</h3>
-                    <p className="text-lg font-bold">
+                    <h3 className="text-4xl font-black md:text-3xl">{lang == 'ko' ? '스터디' : 'Study'}</h3>
+                    <p className="text-lg font-bold md:text-base">
                         {lang == 'ko'
                             ? '딥러닝, 머신러닝, Python 등 그룹 스터디'
                             : 'Group study on AI, ML, DL, and Python'}
@@ -54,7 +54,7 @@ export default function Activity() {
                     {Object.keys(studyUrl).map((year, idx) => {
                         return (
                             <Link
-                                className="flex w-full items-center justify-center bg-sky-600 px-4 text-center text-2xl font-black text-white hover:bg-gray-700 md:py-2"
+                                className="flex w-full items-center justify-center bg-sky-600 px-4 text-center text-2xl font-black text-white hover:bg-gray-700 md:py-2 md:text-lg"
                                 key={idx}
                                 href={studyUrl[year]}
                                 target="_blank"
@@ -70,8 +70,8 @@ export default function Activity() {
           사진 | 일러스트
         </div> */}
                 <div className="flex w-full flex-col justify-between bg-aid-red px-4 py-4 text-white md:w-full">
-                    <h3 className="text-4xl font-black">{lang == 'ko' ? '세미나' : 'Seminar'}</h3>
-                    <p className="text-lg font-bold">
+                    <h3 className="text-4xl font-black md:text-3xl">{lang == 'ko' ? '세미나' : 'Seminar'}</h3>
+                    <p className="text-lg font-bold md:text-base">
                         {lang == 'ko'
                             ? 'AI 논문 리뷰, 칼럼, 취업 수기 등 발표'
                             : 'AI paper reviews, columns, and job search experiences'}
@@ -87,10 +87,10 @@ export default function Activity() {
                     href={ActivityUrl}
                     className="flex w-full flex-col justify-between bg-green-600 px-4 py-4 text-white hover:bg-green-700 md:w-full"
                 >
-                    <h3 className="text-4xl font-black">
+                    <h3 className="text-4xl font-black md:text-3xl">
                         {lang == 'ko' ? '개발 및 대외 활동' : 'Extracurricular Activities'}
                     </h3>
-                    <p className="text-lg font-bold">
+                    <p className="text-lg font-bold md:text-base">
                         {lang == 'ko'
                             ? '사이드 프로젝트, 해커톤 등 대외 활동'
                             : 'Side projects, AI competitions, and hackathons'}
