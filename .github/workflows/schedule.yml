@@ -49,3 +49,12 @@ jobs:
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   branch: main
+
+            - name: Trigger next workflow
+              if: env.CHANGES_DETECTED == 'true'
+              run: |
+                curl -X POST \
+                  -H "Accept: application/vnd.github.v3+json" \
+                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                  https://api.github.com/repos/${{ github.repository }}/dispatches \
+                  -d '{"event_type":"deploy_workflow"}'

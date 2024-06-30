@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     const pageID: string = '28dfae8dfc694303861f61738dd50390';
 
     const data = await fetchNotionData(pageID, notionKey);
-    console.log(data);
+    // console.log(data);
     if (!data) {
         return new NextResponse(null, {
             status: 500,
@@ -59,19 +59,25 @@ export async function GET(request: NextRequest) {
 
     let recruitDate = {
         start: '2024-01-01',
-        end: '2024-01-01',
+        end: '2024-01-02',
         time_zone: null,
     };
+    let recruitUrl = '';
+
     const recruitData = await fetchNotionData(recruitDataID, notionKey);
     recruitData.results.map((element: any) => {
         console.log(element.id);
         if (element.id == recruitPageID) {
+            console.log(element.properties.날짜.id);
             recruitDate = element.properties.날짜.date;
+            recruitUrl = element.properties.비고.rich_text[0].href;
+
+            console.log({ recruitDate, recruitUrl });
         }
     });
 
     try {
-        await writeFile('public/recruit.json', JSON.stringify(recruitDate));
+        await writeFile('public/recruit.json', JSON.stringify({ recruitDate, recruitUrl }));
     } catch (e) {
         console.error(e);
         return new NextResponse(null, {

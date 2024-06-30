@@ -19,7 +19,7 @@ export default function HistorySection() {
     }
 
     // const notionFetcher = async () => {
-    //   const response = await fetch(`/api/dev`, {
+    //   const response = await fetch(`/aid-web-nextjs/api/dev`, {
     //     method: 'GET',
     //     headers: {
     //       'Content-Type': 'application/json',
@@ -28,12 +28,15 @@ export default function HistorySection() {
     //   console.log(response.status);
     // }
 
-    const historyFetcher = async () => {
-        const json: HistoryAID[] = history;
-        setData(json);
-    };
-
     useEffect(() => {
+        const historyFetcher = async () => {
+            const res = await fetch('/aid-web-nextjs/history.json');
+            if (res.status == 200) {
+                const json = await res.json();
+                setData(json);
+            }
+        };
+
         historyFetcher();
     }, []);
 
@@ -41,11 +44,11 @@ export default function HistorySection() {
         <section className="" id="history">
             {/* dev 환경, Notion에서 데이터 갱신하는 버튼 */}
             {/* <button 
-        className="bg-red-500 text-white px-5 py-5"
-        onClick={(e)=>notionFetcher()}
-      >
-        json 생성
-      </button> */}
+                className="bg-red-500 text-white px-5 py-5"
+                onClick={(e)=>notionFetcher()}
+            >
+                json 생성
+            </button> */}
             {yearsArray.map((year, index) => {
                 return (
                     <div className="flex justify-between gap-36 md:mt-12 md:flex-col md:gap-y-4" key={year}>

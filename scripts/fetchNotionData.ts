@@ -56,16 +56,19 @@ async function fetchNotionData(pageID: string, notionKey: string | undefined): P
         end: '2024-01-01',
         time_zone: null,
     };
+    let recruitUrl = '';
+
     const recruitData = await fetchNotionData(recruitDataID, notionKey);
     recruitData.results.map((element: any) => {
         console.log(element.id);
         if (element.id == recruitPageID) {
             recruitDate = element.properties.날짜.date;
+            recruitUrl = element.properties.비고.rich_text[0].href;
         }
     });
 
     try {
-        await writeFile('public/recruit.json', JSON.stringify(recruitDate));
+        await writeFile('public/recruit.json', JSON.stringify({ recruitDate, recruitUrl }));
     } catch (e) {
         console.error(e);
         process.exit(1);

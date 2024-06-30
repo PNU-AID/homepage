@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import recruitData from '@/public/recruit.json';
+import Link from 'next/link';
 
 interface recruitDate {
     start: string;
@@ -27,15 +27,24 @@ export default function AidTop() {
         time_zone: null,
     });
 
+    const [recruitUrl, setRecruitUrl] = useState<string>('');
+
     const dateConverter = (origin: string) => {
         const dateArr = origin.split('-');
         return `${dateArr[0].slice(2, 4)}.${dateArr[1]}.${dateArr[2]}`;
     };
 
     useEffect(() => {
-        if (recruitData) {
-            setRecruitDate(recruitData);
-        }
+        const recruitFetcher = async () => {
+            const res = await fetch('/aid-web-nextjs/recruit.json');
+            if (res.status == 200) {
+                const json = await res.json();
+                if (json.recruitDate) setRecruitDate(json.recruitDate);
+                if (json.recruitUrl) setRecruitUrl(json.recruitUrl);
+            }
+        };
+
+        recruitFetcher();
     }, []);
 
     return (
@@ -75,9 +84,12 @@ export default function AidTop() {
 
                     new Date(recruitDate.start) <= new Date() && new Date() <= new Date(recruitDate.end) ? (
                         <div className="flex w-full items-center gap-3 md:mt-8 md:flex-col-reverse">
-                            <button className="text-nowrap bg-aid-blue px-4 py-2 text-white md:w-full md:px-2 md:py-2 md:text-sm">
+                            <Link
+                                className="text-nowrap bg-aid-blue px-4 py-2 text-white md:w-full md:px-2 md:py-2 md:text-sm"
+                                href={recruitUrl}
+                            >
                                 {lang == 'ko' ? '동아리 지원하기' : 'Apply'}
-                            </button>
+                            </Link>
                             <p className="w-full text-nowrap md:text-start md:text-sm">
                                 {lang == 'ko' ? '모집기간' : 'Recruitment Period'} - {dateConverter(recruitDate.start)}~
                                 {dateConverter(recruitDate.end)}
