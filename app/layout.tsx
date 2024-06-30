@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: '인공지능 동아리, AID',
         description: '부산대학교 인공지능 동아리 AID입니다.',
-        siteName: '센디 드라이버',
+        siteName: 'AI Developer',
         url: AID_WEB_URL,
         type: 'website',
     },
