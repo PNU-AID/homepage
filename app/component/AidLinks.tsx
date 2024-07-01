@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import urls from '@/public/url.json';
+import config from '@/next.config.mjs';
 
 export default function AidLinks() {
     const [aidUrl, setAidUrl] = useState({
@@ -27,27 +28,27 @@ export default function AidLinks() {
             className="flex items-center justify-center gap-16 text-xl font-black md:flex-col md:gap-2"
         >
             <Link
-                className="flex flex-col w-36 items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
+                className="flex w-36 flex-col items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
                 target="_blank"
                 href={aidUrl.github}
             >
-                <Image alt="github_logo" width="50" height="1" src="/aid-web-nextjs/github-mark.svg" />
+                <Image alt="github_logo" width="50" height="1" src={`${config.basePath}/github-mark.svg`} />
                 <text>GitHub</text>
             </Link>
             <Link
-                className="flex flex-col w-36 items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
+                className="flex w-36 flex-col items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
                 target="_blank"
                 href={aidUrl.notion}
             >
-                <Image alt="notion_logo" width="50" height="1" src="/aid-web-nextjs/notion-mark.svg" />
+                <Image alt="notion_logo" width="50" height="1" src={`${config.basePath}/notion-mark.svg`} />
                 <text>Notion</text>
             </Link>
             <Link
-                className="flex flex-col w-36 items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
+                className="flex w-36 flex-col items-center border-2 border-gray-300 p-8 hover:bg-gray-300 md:w-full md:p-4"
                 target="_blank"
                 href={aidUrl.velog}
             >
-                <Image alt="velog_logo" width="50" height="1" src="/aid-web-nextjs/velog-mark.svg" />
+                <Image alt="velog_logo" width="50" height="1" src={`${config.basePath}/velog-mark.svg`} />
                 <text>Velog</text>
             </Link>
         </section>

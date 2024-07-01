@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import history from '@/public/history.json';
+import config from '@/next.config.mjs';
 
 interface HistoryAID {
     title: string;
@@ -30,7 +30,7 @@ export default function HistorySection() {
 
     useEffect(() => {
         const historyFetcher = async () => {
-            const res = await fetch('/aid-web-nextjs/history.json');
+            const res = await fetch(`${config.basePath}/history.json`);
             if (res.status == 200) {
                 const json = await res.json();
                 setData(json);

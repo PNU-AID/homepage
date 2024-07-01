@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import config from '@/next.config.mjs';
 
 interface recruitDate {
     start: string;
@@ -36,7 +37,7 @@ export default function AidTop() {
 
     useEffect(() => {
         const recruitFetcher = async () => {
-            const res = await fetch('/aid-web-nextjs/recruit.json');
+            const res = await fetch(`${config.basePath}/recruit.json`);
             if (res.status == 200) {
                 const json = await res.json();
                 if (json.recruitDate) setRecruitDate(json.recruitDate);

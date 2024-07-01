@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import config from '../../next.config.mjs';
 
 interface studyUrl {
     [key: string]: string;
@@ -17,7 +18,7 @@ export default function Activity() {
     const [ActivityUrl, setActivityUrl] = useState<string>('');
 
     const urlFetcher = async () => {
-        const res = await fetch('/aid-web-nextjs/url.json');
+        const res = await fetch(`${config.basePath}/url.json`);
         if (res.status == 200) {
             const json = await res.json();
             if (json.Study) setStudyUrl(json.Study);
@@ -41,7 +42,7 @@ export default function Activity() {
 
     return (
         <section className="" id="activity">
-            <div className="flex h-48 md:flex-col md:h-44">
+            <div className="flex h-48 md:h-44 md:flex-col">
                 <div className="flex flex-1 flex-col justify-between bg-sky-500 px-4 py-4 text-white md:w-full">
                     <h3 className="text-4xl font-black md:text-3xl">{lang == 'ko' ? '스터디' : 'Study'}</h3>
                     <p className="text-lg font-bold md:text-base">

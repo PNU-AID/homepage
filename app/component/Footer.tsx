@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Logo from '@/app/component/Logo';
 import urls from '@/public/url.json';
+import config from '@/next.config.mjs';
 
 export default function Footer() {
     const [lang, setLang] = useState<string>('ko');
@@ -40,17 +41,17 @@ export default function Footer() {
                     <Logo />
                     <div className="flex text-sm font-semibold">
                         <Link className="px-3 py-5" target="_blank" href={aidUrl.github}>
-                            <Image alt="github_logo" width="30" height="1" src="/aid-web-nextjs/github-mark.svg" />
+                            <Image alt="github_logo" width="30" height="1" src={`${config.basePath}/github-mark.svg`} />
                         </Link>
                         <Link className="px-3 py-5" target="_blank" href={aidUrl.notion}>
-                            <Image alt="github_logo" width="30" height="1" src="/aid-web-nextjs/notion-mark.svg" />
+                            <Image alt="github_logo" width="30" height="1" src={`${config.basePath}/notion-mark.svg`} />
                         </Link>
                         <Link className="px-3 py-5" target="_blank" href={aidUrl.velog}>
-                            <Image alt="github_logo" width="30" height="1" src="/aid-web-nextjs/velog-mark.svg" />
+                            <Image alt="github_logo" width="30" height="1" src={`${config.basePath}/velog-mark.svg`} />
                         </Link>
                     </div>
                 </div>
-                <div className="flex-col text-sm md:text-center md:text-gray-500 md:space-y-2">
+                <div className="flex-col text-sm md:space-y-2 md:text-center md:text-gray-500">
                     <h1 className="text-lg font-black md:hidden">Contact</h1>
                     <h3>{lang == 'en' ? '+82 ' : '0'}10-5495-4551</h3>
                     <h3>{lang == 'ko' ? '회장 강준우' : 'Chairman - Junwoo Kang'} (jangtai4@pusan.ac.kr)</h3>
