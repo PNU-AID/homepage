@@ -11,7 +11,7 @@
 
 ## ⚠️ Caution
 
--   localhost 실행 시 `localhost/aid-web-nextjs`로 접속
+-   localhost 실행 시 `localhost/hompage`로 접속
 
 ## System Architecture
 
