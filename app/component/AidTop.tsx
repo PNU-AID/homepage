@@ -83,7 +83,9 @@ export default function AidTop() {
           public/recruit.json 파일에 모집기간 저장
           Dev 환경에서 recruit.json 파일을 갱신하는 버튼은 HistorySection.tsx 컴포넌트에 주석처리 해둠 */
 
-                    new Date(recruitDate.start) <= new Date() && new Date() <= new Date(recruitDate.end) ? (
+                    new Date(recruitDate.start) <= new Date() &&
+                    new Date() <=
+                        new Date(new Date(recruitDate.end).setDate(new Date(recruitDate.end).getDate() + 1)) ? (
                         <div className="flex w-full items-center gap-3 md:mt-8 md:flex-col-reverse">
                             <Link
                                 className="text-nowrap bg-aid-blue px-4 py-2 text-white md:w-full md:px-2 md:py-2 md:text-sm"
