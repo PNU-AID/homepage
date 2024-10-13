@@ -62,9 +62,9 @@ async function fetchNotionData(pageID: string, notionKey: string | undefined): P
     };
     let recruitUrl = '';
 
-    const recruitData = await fetchNotionData(recruitDataID, notionKey);
+    const recruitData = await fetchNotionData(recruitPageID, notionKey);
     recruitData.results.map((element: any) => {
-        if (element.id == recruitPageID) {
+        if (element.id == recruitDataID) {
             recruitDate = element.properties.날짜.date;
             recruitUrl = element.properties.비고.rich_text[0].href;
         }
