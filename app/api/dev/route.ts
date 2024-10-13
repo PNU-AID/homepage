@@ -23,7 +23,9 @@ async function fetchNotionData(pageID: string, notionKey: string | undefined) {
 
 export async function GET(request: NextRequest) {
     const notionKey = process.env.NOTION_KEY;
-    const pageID: string = '28dfae8dfc694303861f61738dd50390';
+
+    // 1. AID 이력 가져오기
+    const pageID: string = '11ef0e0d194f815fa857e2aff20b239c';
 
     const data = await fetchNotionData(pageID, notionKey);
     // console.log(data);
@@ -54,8 +56,10 @@ export async function GET(request: NextRequest) {
         });
     }
 
-    const recruitDataID: string = '7b6a34d36a0d47ff8af08ac2c5f6d88a';
-    const recruitPageID: string = '788a6802-ef41-4be8-bfb8-711698128fc7';
+    // 2. AID 모집일정 가져오기
+
+    const recruitPageID: string = '11ef0e0d194f8163a069f5c2e6b18f24';
+    const recruitDataID: string = '11ef0e0d-194f-8180-a354-fb5a06050f65';
 
     let recruitDate = {
         start: '2024-01-01',
@@ -64,10 +68,11 @@ export async function GET(request: NextRequest) {
     };
     let recruitUrl = '';
 
-    const recruitData = await fetchNotionData(recruitDataID, notionKey);
+    const recruitData = await fetchNotionData(recruitPageID, notionKey);
+
     recruitData.results.map((element: any) => {
-        console.log(element.id);
-        if (element.id == recruitPageID) {
+        // console.log(element.id);
+        if (element.id == recruitDataID) {
             console.log(element.properties.날짜.id);
             recruitDate = element.properties.날짜.date;
             recruitUrl = element.properties.비고.rich_text[0].href;
