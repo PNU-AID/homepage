@@ -100,7 +100,13 @@ export default function Activity() {
                         href={JiokCampUrl}
                         target="_blank"
                     >
-                        지옥캠프<br className='md:hidden'/>(AID 대회)
+                        {lang == 'ko'
+                            ? '지옥캠프'
+                            : 'JiokCamp'}
+                        <br className='md:hidden'/>
+                        {lang == 'ko'
+                            ? '(AID 대회)'
+                            : '(AID Competition)'}
                     </Link>
                 </div>
             </div>
