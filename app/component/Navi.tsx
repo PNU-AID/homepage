@@ -62,8 +62,8 @@ export default function Navi() {
     };
 
     return (
-        <header className="fixed left-0 right-0 top-0 flex w-full items-center justify-center bg-white py-4 md:py-2">
-            <nav className={'flex w-4/5 items-center md:w-full md:px-6'}>
+        <header className="fixed left-0 right-0 top-0 z-10 m-auto flex items-center justify-center bg-white/70 py-4 shadow backdrop-blur-lg md:py-2">
+            <nav className={'z-10 flex w-4/5 items-center md:w-full md:px-6'}>
                 <Logo />
                 <div className="ml-auto flex items-center space-x-16 font-light">
                     <menu className="space-x-8 md:hidden">

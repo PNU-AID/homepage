@@ -17,12 +17,15 @@ export default function Activity() {
 
     const [ActivityUrl, setActivityUrl] = useState<string>('');
 
+    const [JiokCampUrl, setJiokCampUrl] = useState<string>('');
+
     const urlFetcher = async () => {
         const res = await fetch(`${config.basePath}/url.json`);
         if (res.status == 200) {
             const json = await res.json();
             if (json.Study) setStudyUrl(json.Study);
             if (json.Activity) setActivityUrl(json.Activity);
+            if (json.AID.JiokCamp) setJiokCampUrl(json.AID.JiokCamp)
         }
     };
 
@@ -67,9 +70,6 @@ export default function Activity() {
                 </div>
             </div>
             <div className="flex h-48 md:h-40">
-                {/* <div className="flex-1 bg-gray-300 md:hidden">
-          사진 | 일러스트
-        </div> */}
                 <div className="flex w-full flex-col justify-between bg-aid-red px-4 py-4 text-white md:w-full">
                     <h3 className="text-4xl font-black md:text-3xl">{lang == 'ko' ? '세미나' : 'Seminar'}</h3>
                     <p className="text-lg font-bold md:text-base">
@@ -79,14 +79,11 @@ export default function Activity() {
                     </p>
                 </div>
             </div>
-            <div className="flex h-48 md:h-40">
-                {/* <div className="flex-1 bg-gray-300 md:hidden">
-          사진 | 일러스트
-        </div> */}
+            <div className="flex h-48 md:h-44 md:flex-col">
                 <Link
                     target="_blank"
                     href={ActivityUrl}
-                    className="flex w-full flex-col justify-between bg-green-600 px-4 py-4 text-white hover:bg-green-700 md:w-full"
+                    className="flex w-full flex-1 flex-col justify-between bg-green-600 px-4 py-4 text-white hover:bg-green-700 md:w-full"
                 >
                     <h3 className="text-4xl font-black md:text-3xl">
                         {lang == 'ko' ? '개발 및 대외 활동' : 'Extracurricular Activities'}
@@ -97,6 +94,15 @@ export default function Activity() {
                             : 'Side projects, AI competitions, and hackathons'}
                     </p>
                 </Link>
+                <div className="flex items-stretch justify-between">
+                    <Link
+                        className="flex w-full text-nowrap items-center justify-center bg-green-800 px-4 text-center text-2xl font-black text-white hover:bg-gray-700 md:py-2 md:text-lg"
+                        href={JiokCampUrl}
+                        target="_blank"
+                    >
+                        지옥캠프<br className='md:hidden'/>(AID 대회)
+                    </Link>
+                </div>
             </div>
         </section>
     );
