@@ -19,14 +19,14 @@ export default function HistorySection() {
     }
 
     // const notionFetcher = async () => {
-    //   const response = await fetch(`/aid-web-nextjs/api/dev`, {
-    //     method: 'GET',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     }
-    //   });
-    //   console.log(response.status);
-    // }
+    //     const response = await fetch(`${config.basePath}/api/dev`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //     });
+    //     console.log(response.status);
+    // };
 
     useEffect(() => {
         const historyFetcher = async () => {
@@ -43,10 +43,7 @@ export default function HistorySection() {
     return (
         <section className="" id="history">
             {/* dev 환경, Notion에서 데이터 갱신하는 버튼 */}
-            {/* <button 
-                className="bg-red-500 text-white px-5 py-5"
-                onClick={(e)=>notionFetcher()}
-            >
+            {/* <button className="bg-red-500 px-5 py-5 text-white" onClick={(e) => notionFetcher()}>
                 json 생성
             </button> */}
             {yearsArray.map((year, index) => {
