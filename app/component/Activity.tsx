@@ -25,7 +25,7 @@ export default function Activity() {
             const json = await res.json();
             if (json.Study) setStudyUrl(json.Study);
             if (json.Activity) setActivityUrl(json.Activity);
-            if (json.AID.JiokCamp) setJiokCampUrl(json.AID.JiokCamp)
+            if (json.AID.JiokCamp) setJiokCampUrl(json.AID.JiokCamp);
         }
     };
 
@@ -96,17 +96,13 @@ export default function Activity() {
                 </Link>
                 <div className="flex items-stretch justify-between">
                     <Link
-                        className="flex w-full text-nowrap items-center justify-center bg-green-800 px-4 text-center text-2xl font-black text-white hover:bg-gray-700 md:py-2 md:text-lg"
+                        className="flex w-full items-center justify-center text-nowrap bg-green-800 px-4 text-center text-2xl font-black text-white hover:bg-gray-700 md:py-2 md:text-lg"
                         href={JiokCampUrl}
                         target="_blank"
                     >
-                        {lang == 'ko'
-                            ? '지옥캠프'
-                            : 'JiokCamp'}
-                        <br className='md:hidden'/>
-                        {lang == 'ko'
-                            ? '(AID 대회)'
-                            : '(AID Competition)'}
+                        {lang == 'ko' ? '지옥캠프' : 'JiokCamp'}
+                        <br className="md:hidden" />
+                        {lang == 'ko' ? '(AID 대회)' : '(AID Competition)'}
                     </Link>
                 </div>
             </div>
