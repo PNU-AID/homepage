@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { writeFile } from 'fs/promises';
 
-export const dynamic = 'force-dynamic'; // or: export const revalidate = 0;
+// export const dynamic = 'force-dynamic'; // 노션 캐싱 방지
 
 async function fetchNotionData(pageID: string, notionKey: string | undefined) {
     try {
