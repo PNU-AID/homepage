@@ -1,10 +1,13 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { writeFile } from 'fs/promises';
 
+export const dynamic = 'force-dynamic'; // or: export const revalidate = 0;
+
 async function fetchNotionData(pageID: string, notionKey: string | undefined) {
     try {
         const response = await fetch(`https://api.notion.com/v1/databases/${pageID}/query`, {
             method: 'POST',
+            cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
                 'Notion-Version': '2022-06-28',
