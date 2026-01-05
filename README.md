@@ -1,8 +1,15 @@
 # AID WEB 리뉴얼
 
+<a href="https://pnu-aid.github.io/homepage/"><img alt="aid_logo" src="./Logo.png" style="background-color: white;"><br/><span>클릭시 웹 페이지로 이동됩니다.</span></a>
+
 ## Description
 
 부산대학교 인공지능 동아리, AID의 웹사이트를 리뉴얼하는 프로젝트입니다.
+
+## 특징
+
+Next.js로 부터 Github Pages 기능을 이용해 정적 빌드되어 자동 배포됩니다.
+웹페이지에 표시되는 대회 수상 데이터, 신규 부원 모집 데이터는 동아리에서 관리하는 Notion 페이지의 데이터를 통해 관리됩니다.
 
 ## ⚠️ Caution
 
