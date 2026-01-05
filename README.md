@@ -1,3 +1,5 @@
+### 👉[English README](./README-EN.md)👈
+
 # AID WEB 리뉴얼
 
 <a href="https://pnu-aid.github.io/homepage/"><img alt="aid_logo" src="./Logo.png" style="background-color: white;"><br/><span>클릭시 웹 페이지로 이동됩니다.</span></a>
