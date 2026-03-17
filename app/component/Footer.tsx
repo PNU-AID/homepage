@@ -54,7 +54,7 @@ export default function Footer() {
                 <div className="flex-col text-sm md:space-y-2 md:text-center md:text-gray-500">
                     <h1 className="text-lg font-black md:hidden">Contact</h1>
                     <h3>aideveloper@pusan.ac.kr</h3>
-                    <h3>{lang == 'ko' ? '회장 윤대한' : 'Chairman - Daehan Yun'} (j952225@pusan.ac.kr)</h3>
+                    <h3>{lang == 'ko' ? '회장 안준영' : 'Chairman - Junyoung Ahn'} (ahnjun0@pusan.ac.kr)</h3>
                     <h3>{lang == 'ko' ? '부회장 송지윤' : 'Vice Chairman - Jiyun Song'} (yunw66567@gmail.com)</h3>
                     <h3>
                         {lang == 'ko'
